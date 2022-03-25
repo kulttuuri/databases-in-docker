@@ -1,0 +1,5 @@
+#docker stop databasecourse
+#docker rm databasecourse
+docker run -t -d --name databasecourse databasecourse
+docker start databasecourse
+docker exec -it databasecourse /bin/bash
