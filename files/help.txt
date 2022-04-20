@@ -1,0 +1,23 @@
+# STARTING MYCLI
+
+sudo mycli -u root
+
+# STARTING MYSQL
+
+sudo mysql
+
+# STARTING SQLITE3
+
+sqlite3 databaseFileName.db
+
+# STARTING REDIS
+
+---
+
+# STARTING AMAZON DYNAMODB
+
+---
+
+# STARTING NEO4J
+
+---

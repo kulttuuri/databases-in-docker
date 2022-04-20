@@ -1,0 +1,11 @@
+[Unit]
+Description=Redis
+After=syslog.target
+
+[Service]
+ExecStart=/usr/bin/redis-server /etc/redis/redis.conf
+RestartSec=5s
+Restart=on-success
+
+[Install]
+WantedBy=multi-user.target
