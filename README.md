@@ -20,22 +20,22 @@ In order to get everything running, following steps will need to be completed:
 
 After the image has been built, you only need to run the container. Building the image will delete any changes or data you have done inside the image.
 
-### 0 / 3: Install Docker (if not already installed)
+### 0/3: Install Docker (if not already installed)
 
 You need to first start by installing Docker, if you have not yet installed that. Good instructions for that can be found over Google so those will not be described over here. Note that if you are installing Docker for WSL, then find separate instructions for that.
 
-### 1 / 3: Download Repository
+### 1/3: Download Repository
 
 First, download this repository. You can either clone or download this repository as a zip file.
 
-### 2 / 3: Build Image
+### 2/3: Build Image
 
 To build the image, navigate to the folder that you cloned or downloaded and:
 
 1. Give run permissions to the ``build`` script by running ``chmod +x build``
 2. Run the script with command ``./build``. It will then ask if you are sure, press ``Y`` to proceed building the image.
 
-### 3 /3: Run Container
+### 3/3: Run Container
 
 To run the docker container:
 
