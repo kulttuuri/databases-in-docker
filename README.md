@@ -32,14 +32,14 @@ First, download this repository. You can either clone or download this repositor
 
 To build the image, navigate to the folder that you cloned or downloaded and:
 
-1. Give run permissions to the ``build`` script by running ``chmod +x build``
-2. Run the script with command ``./build``. It will then ask if you are sure, press ``Y`` to proceed building the image.
+1. Give run permissions to the **build** script by running ``chmod +x build``
+2. Run the script with command ``./build``. It will then ask if you are sure, press **Y** to proceed building the image.
 
 ### 3/3: Run Container
 
 To run the docker container:
 
-1. You need to also give run permissions to the ``run`` script first by running ``chmod +x run``.
+1. You need to also give run permissions to the **run** script first by running ``chmod +x run``.
 2. Now, just run the script with ``./run``.
 
 Now at this point, you only need to run the container by running the command ``./run``. No need to run the build script anymore.
