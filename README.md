@@ -1,6 +1,6 @@
 # Docker image for AI Database Courses
 
-This repository contains automatic ``build`` and ``run`` scripts for spinning up a docker image containing these DBMS systems pre-installed and configured:
+This repository contains automatic scripts for spinning up a docker image containing DBMS systems pre-installed and configured listed below:
 - MariaDB
 - SQLite 3
 - Redis (redis-cli and redis-server)
