@@ -1,1 +1,45 @@
-# db-course-docker
+# Docker image for AI Database Courses
+
+This repository contains automatic ``build`` and ``run`` scripts for spinning up a docker image containing these DBMS systems pre-installed and configured:
+- MariaDB
+- SQLite 3
+- Redis (redis-cli and redis-server)
+
+**Additional software / libraries installed**:
+- MyCLI
+- Python3
+
+## Getting Started
+
+In order to get everything running, following steps will need to be completed:
+0. Install Docker (if not already installed)
+1. Download this repository to your computer
+2. Build the image
+3. Run the container
+
+After the image has been built, you only need to run the container. Building the image will delete any changes or data you have done inside the image.
+
+### 0 / 3: Installing Docker (if not already installed)
+
+You need to first start by installing Docker, if you have not yet installed that. Good instructions for that can be found over Google so those will not be described over here. Note that if you are installing Docker for WSL, then find separate instructions for that.
+
+### 1 / 3: Downloading the Repository
+
+First, download this repository. You can either clone or download this repository as a zip file.
+
+### 2 / 3: Building the Image
+
+To build the image, navigate to the folder that you cloned or downloaded and:
+
+1. Give run permissions to the ``build`` script by running ``chmod +x build``
+2. Run the script with command ``./build``. It will then ask if you are sure, press ``Y`` to proceed building the image.
+
+### 3 /3: Running the Container
+
+To run the docker container:
+
+1. You need to also give run permissions to the ``run`` script first by running ``chmod +x run``.
+2. Now, just run the script with ``./run``.
+
+Now at this point, you only need to run the container by running the command ``./run``. No need to run the build script anymore.
+To exit out from the container, just use the command ``exit``.
