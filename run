@@ -1,3 +1,5 @@
+#! /bin/bash
+
 #docker stop databasecourse
 #docker rm databasecourse
 docker run -t -d -h dbCourseUbuntu --name databasecourse databasecourse
