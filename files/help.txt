@@ -12,7 +12,7 @@ sqlite3 databaseFileName.db
 
 # STARTING REDIS
 
----
+redis-cli
 
 # STARTING AMAZON DYNAMODB
 

@@ -1,5 +1,12 @@
 #docker stop databasecourse
 #docker rm databasecourse
-docker run -t -d --name databasecourse databasecourse
+docker run -t -d -h dbCourseUbuntu --name databasecourse databasecourse
 docker start databasecourse
+echo ""
+echo "###"
+echo "STARTING DOCKER CONTAINER FOR THE DATABASE COURSE"
+echo "# Read the file help.txt to view all the available database systems and commands to use them"
+echo "# Run command 'exit' to get out of the Docker container."
+echo "###"
+echo ""
 docker exec -it databasecourse /bin/bash
