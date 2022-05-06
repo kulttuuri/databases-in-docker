@@ -14,10 +14,19 @@ sqlite3 databaseFileName.db
 
 redis-cli
 
-# STARTING AMAZON DYNAMODB
+# STARTING MONGODB
 
----
+mongosh
+
+# TODO: Disabloidaan myös viestit tulemasta
 
 # STARTING NEO4J
 
----
+cypher-shell
+
+Default username: neo4j
+default password: neo4j
+
+Password will be required to be changed on first login.
+To remember the password, change the password to: password
+

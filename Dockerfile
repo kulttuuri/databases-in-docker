@@ -25,7 +25,7 @@ ENV apt apt-get --no-install-recommends install -yq
 # Basic software to be installed
 
 #RUN $apt build-essential acl unzip git
-RUN $apt sudo systemctl nano
+RUN $apt sudo systemctl nano curl gnupg2
 
 ###
 # INSTALLATION
@@ -75,3 +75,24 @@ COPY ./files/redis.service /etc/systemd/system/redis.service
 RUN systemctl enable redis
 RUN systemctl start redis
 RUN echo "systemctl start redis" >> ~/.bashrc
+
+#
+# MONGODB
+#
+
+# Mongodb version 5
+RUN curl -fsSL https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+RUN apt update
+RUN $apt mongodb-org
+RUN echo "systemctl start mongod.service" >> ~/.bashrc
+
+#
+# NEO4J
+#
+
+RUN curl -fsSL https://debian.neo4j.com/neotechnology.gpg.key |sudo gpg --dearmor -o /usr/share/keyrings/neo4j.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/neo4j.gpg] https://debian.neo4j.com stable 4.1" | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+RUN apt update
+RUN $apt neo4j
+RUN echo "systemctl start neo4j.service" >> ~/.bashrc
