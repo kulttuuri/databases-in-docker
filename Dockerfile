@@ -86,6 +86,7 @@ RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mon
 RUN apt update
 RUN $apt mongodb-org
 RUN echo "systemctl start mongod.service" >> ~/.bashrc
+RUN printf "cloud:\n  monitoring:\n    free:\n      state: 'off'" >> /etc/mongod.conf
 
 #
 # NEO4J
