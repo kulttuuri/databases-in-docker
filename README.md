@@ -1,9 +1,13 @@
 # Docker image containing common DBMS systems
 
-This repository contains automatic scripts for spinning up a docker image containing DBMS systems pre-installed and configured listed below:
+This repository contains automatic scripts for spinning up a docker image containing DBMS systems pre-installed. The **build** script can be used to build the container and **run** script to run the container and to login into the container, so that you can use any database from the container.
+
+The pre-installed DBMS systems are listed below:
 - MariaDB
 - SQLite 3
 - Redis (redis-cli and redis-server)
+- MongoDB
+- Neo4j (& Neo4j browser)
 
 **Additional software / libraries installed**:
 - MyCLI
@@ -45,4 +49,4 @@ To run the docker container:
 Now at this point, you only need to run the container by running the command ``./run``. No need to run the build script anymore.
 To exit out from the container, just use the command ``exit``.
 
-Inside the container you can also find a file called ``help`` in your home directory. View that file to view what commands can you use to use the pre-installed DBMS systems.
+Inside the container you can also find a file called ``help.txt`` in your home directory. View that file to view what commands can you use to use the pre-installed DBMS systems.
