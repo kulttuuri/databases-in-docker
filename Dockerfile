@@ -1,5 +1,5 @@
 FROM docker.io/ubuntu:20.04
-LABEL maintainer="aleksi.postari@samk.fi"
+LABEL maintainer="aleksi@postari.net"
 ARG TZ=Europe/Helsinki
 
 # Set home directory
