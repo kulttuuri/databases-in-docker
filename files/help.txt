@@ -22,6 +22,10 @@ mongosh
 
 # STARTING NEO4J
 
+## Through browser:
+http://localhost:7474
+
+## Through shell:
 cypher-shell
 
 Default username: neo4j

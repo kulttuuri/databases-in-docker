@@ -93,7 +93,8 @@ RUN printf "cloud:\n  monitoring:\n    free:\n      state: 'off'" >> /etc/mongod
 #
 
 RUN curl -fsSL https://debian.neo4j.com/neotechnology.gpg.key |sudo gpg --dearmor -o /usr/share/keyrings/neo4j.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/neo4j.gpg] https://debian.neo4j.com stable 4.1" | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+RUN echo "deb [signed-by=/usr/share/keyrings/neo4j.gpg] https://debian.neo4j.com stable 4.4" | sudo tee -a /etc/apt/sources.list.d/neo4j.list
 RUN apt update
 RUN $apt neo4j
+RUN sed -i "s|#dbms.default_listen_address=0.0.0.0|dbms.default_listen_address=0.0.0.0|g" /etc/neo4j/neo4j.conf
 RUN echo "systemctl start neo4j.service" >> ~/.bashrc
