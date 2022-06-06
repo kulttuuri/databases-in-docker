@@ -1,4 +1,4 @@
-# Docker image for AI Database Courses
+# Docker image containing common DBMS systems
 
 This repository contains automatic scripts for spinning up a docker image containing DBMS systems pre-installed and configured listed below:
 - MariaDB
@@ -44,3 +44,5 @@ To run the docker container:
 
 Now at this point, you only need to run the container by running the command ``./run``. No need to run the build script anymore.
 To exit out from the container, just use the command ``exit``.
+
+Inside the container you can also find a file called ``help`` in your home directory. View that file to view what commands can you use to use the pre-installed DBMS systems.
