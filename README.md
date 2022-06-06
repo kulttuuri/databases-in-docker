@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/3810422/172101312-3c5d633f-3b87-41c8-a714-065f22d9e99b.png)
 
-This repository contains automatic scripts for spinning up a Docker image containing some common DBMS systems pre-installed. The **build** script can be used to build the container and the **run** script to run the container and to login into the container, so that you can use any database from the container.
+This repository contains automatic scripts for spinning up a Docker image containing some common DBMS systems pre-installed. Container utilizes Ubuntu linux operating system. The **build** script can be used to build the container and the **run** script to run the container and to login into the container, so that you can use any database from the container.
 
 > This repository is meant for developing with the databases or learning the given databases, not for production deployment.
 
@@ -16,6 +16,10 @@ The pre-installed DBMS systems are listed below:
 **Additional software / libraries installed**:
 - MyCLI
 - Python3
+
+## Compatibility (Requirements)
+
+These scripts should work with any Unix system. The scripts have been tested to work at least with with Ubuntu Linux (20.04) and MacOS (arm).
 
 ## Getting Started
 
