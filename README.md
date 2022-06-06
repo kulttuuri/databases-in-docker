@@ -1,6 +1,6 @@
-# Docker image containing common DBMS systems
+# Databases in Docker
 
-This repository contains automatic scripts for spinning up a docker image containing DBMS systems pre-installed. The **build** script can be used to build the container and **run** script to run the container and to login into the container, so that you can use any database from the container.
+This repository contains automatic scripts for spinning up a Docker image containing some common DBMS systems pre-installed. The **build** script can be used to build the container and **run** script to run the container and to login into the container, so that you can use any database from the container.
 
 The pre-installed DBMS systems are listed below:
 - MariaDB
@@ -26,7 +26,7 @@ After the image has been built, you only need to run the container. Building the
 
 ### 0/3: Install Docker (if not already installed)
 
-You need to first start by installing Docker, if you have not yet installed that. Good instructions for that can be found over Google so those will not be described over here. Note that if you are installing Docker for WSL, then find separate instructions for that.
+You need to first start by installing Docker, if you have not yet installed that. It is recommended to install the Docker Desktop software, as that pre-configures everything.
 
 ### 1/3: Download Repository
 
