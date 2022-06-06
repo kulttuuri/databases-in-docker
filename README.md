@@ -41,7 +41,7 @@ To build the image, navigate to the folder that you cloned or downloaded and:
 1. Give run permissions to the **build** script by running ``chmod +x build``
 2. Run the script with command ``./build``. It will then ask if you are sure, press **Y** to proceed building the image.
 
-After the image has been built, you only need to run the container. Building the image again would delete any changes or data you have done inside the image.
+After the image has been built, you only need to run the container. Building the image again would delete any changes or data you have stored inside the image.
 
 ### 3/3: Run Container
 
