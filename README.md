@@ -32,11 +32,11 @@ You need to first start by installing Docker, if you have not yet installed that
 
 ### 1/3: Download Repository
 
-First, download this repository. You can either clone or download this repository as a zip file.
+First, download this repository to somewhere on your computer. You can either clone this repository or download this repository as a zip file.
 
 ### 2/3: Build Image
 
-To build the image, navigate to the folder that you cloned or downloaded and:
+To build the image, navigate to the folder where you cloned or downloaded this repository and:
 
 1. Give run permissions to the **build** script by running ``chmod +x build``
 2. Run the script with command ``./build``. It will then ask if you are sure, press **Y** to proceed building the image.
