@@ -2,6 +2,8 @@
 
 This repository contains automatic scripts for spinning up a Docker image containing some common DBMS systems pre-installed. The **build** script can be used to build the container and **run** script to run the container and to login into the container, so that you can use any database from the container.
 
+> This repository is meant for developing with the databases or learning the given databases, not for production deployment.
+
 The pre-installed DBMS systems are listed below:
 - MariaDB
 - SQLite 3
