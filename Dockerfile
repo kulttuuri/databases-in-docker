@@ -25,7 +25,7 @@ ENV apt apt-get --no-install-recommends install -yq
 # Basic software to be installed
 
 #RUN $apt build-essential acl unzip git
-RUN $apt sudo systemctl nano curl gnupg2
+RUN $apt sudo systemctl nano curl gnupg2 unzip wget
 
 ###
 # INSTALLATION
