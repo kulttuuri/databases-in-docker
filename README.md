@@ -45,6 +45,8 @@ To build the image, navigate to the folder where you cloned or downloaded this r
 1. Give run permissions to the **build** script by running ``chmod +x build``
 2. Run the script with command ``./build``. It will then ask if you are sure, press **Y** to proceed building the image.
 
+> Optionally, in non-Unix environments, the commands inside the `build` script could be run individually one by one, instead of running the file.
+
 After the image has been built, you only need to run the container. Building the image again would delete any changes or data you have stored inside the container.
 
 ### 3/3: Run Container
@@ -56,5 +58,7 @@ To run the docker container:
 
 Now at this point, you only need to run the container by running the command ``./run``. No need to run the build script anymore.
 To exit out from the container, just use the command ``exit``.
+
+> Optionally, in non-Unix environments, the commands inside the `run` script could be run individually one by one, instead of running the file.
 
 Inside the container you can also find a file called ``help.txt`` in your home directory. View that file to view what commands can you use to use the pre-installed DBMS systems.
