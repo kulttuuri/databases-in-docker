@@ -4,6 +4,8 @@
 
 This repository contains automatic scripts for spinning up a Docker image containing some common DBMS systems pre-installed. Container utilizes Ubuntu linux operating system. The **build** script can be used to build the container and the **run** script to run the container and to login into the container, so that you can use any database from the container.
 
+All databases and scripts are contained inside **one** Ubuntu virtual machine for easy usage.
+
 > This repository is meant for developing with the databases or learning the given databases, not for production deployment.
 
 The pre-installed DBMS systems are listed below:
