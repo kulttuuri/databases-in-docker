@@ -85,6 +85,9 @@ RUN curl -fsSL https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key 
 RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 RUN apt update
 RUN $apt mongodb-org
+# Expose this instance to the whole world
+# Absolutely NEVER do this in a production environment
+RUN sed -i "s|127.0.0.1|0.0.0.0|g" /etc/mongod.conf
 RUN echo "systemctl start mongod.service" >> ~/.bashrc
 RUN printf "cloud:\n  monitoring:\n    free:\n      state: 'off'" >> /etc/mongod.conf
 
