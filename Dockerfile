@@ -25,7 +25,7 @@ ENV apt apt-get --no-install-recommends install -yq
 # Basic software to be installed
 
 #RUN $apt build-essential acl unzip git
-RUN $apt sudo systemctl nano curl gnupg2 unzip wget
+RUN $apt sudo systemctl nano curl gnupg2 unzip wget less vim
 
 ###
 # INSTALLATION
@@ -67,6 +67,11 @@ RUN $apt redis-server redis-tools
 # Configure Redis to run in the background
 RUN sed -i "s|daemonize yes|daemonize no|g" /etc/redis/redis.conf
 #RUN sed -i "s|supervised no|supervised systemd|g" /etc/redis/redis.conf
+
+# Expose Redis to be visible outside of the container
+RUN sed -i "s|protected-mode yes|protected-mode no|g" /etc/redis/redis.conf
+RUN sed -i "s|bind 127.0.0.1 ::1|#bind 127.0.0.1 ::1|g" /etc/redis/redis.conf
+
 
 # Copy the Redis systemd file to container
 COPY ./files/redis.service /etc/systemd/system/redis.service
