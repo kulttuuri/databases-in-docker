@@ -9,6 +9,7 @@ All databases and scripts are contained inside **one** Ubuntu virtual machine fo
 > This repository is meant for developing with the databases or learning the given databases, not for production deployment.
 
 The pre-installed DBMS systems are listed below:
+
 - MariaDB
 - SQLite 3
 - Redis (redis-cli and redis-server)
@@ -16,6 +17,7 @@ The pre-installed DBMS systems are listed below:
 - Neo4j (& Neo4j browser)
 
 **Additional software / libraries installed**:
+
 - MyCLI
 - Python3
 
@@ -44,8 +46,8 @@ First, download this repository to somewhere on your computer. You can either cl
 
 To build the image, navigate to the folder where you cloned or downloaded this repository and:
 
-1. Give run permissions to the **build** script by running ``chmod +x build``
-2. Run the script with command ``./build``. It will then ask if you are sure, press **Y** to proceed building the image.
+1. Give run permissions to the **build** script by running `chmod +x build`
+2. Run the script with command `./build`. It will then ask if you are sure, press **Y** to proceed building the image.
 
 > Optionally, in non-Unix environments, the commands inside the `build` script could be run individually one by one, instead of running the file.
 
@@ -55,12 +57,20 @@ After the image has been built, you only need to run the container. Building the
 
 To run the docker container:
 
-1. You need to also give run permissions to the **run** script first by running ``chmod +x run``.
-2. Now, just run the script with ``./run``.
+1. You need to also give run permissions to the **run** script first by running `chmod +x run`.
+2. Now, just run the script with `./run`.
 
-Now at this point, you only need to run the container by running the command ``./run``. No need to run the build script anymore.
-To exit out from the container, just use the command ``exit``.
+Now at this point, you only need to run the container by running the command `./run`. No need to run the build script anymore.
+To exit out from the container, just use the command `exit`.
 
 > Optionally, in non-Unix environments, the commands inside the `run` script could be run individually one by one, instead of running the file.
 
-Inside the container you can also find a file called ``help.txt`` in your home directory. View that file to view what commands can you use to use the pre-installed DBMS systems.
+### Connecting to a running container
+
+To connect to a already running container run the command
+
+```bash
+docker exec -it databasecourse /bin/bash
+```
+
+Inside the container you can also find a file called `help.txt` in your home directory. View that file to view what commands can you use to use the pre-installed DBMS systems.

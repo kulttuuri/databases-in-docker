@@ -25,7 +25,7 @@ ENV apt apt-get --no-install-recommends install -yq
 # Basic software to be installed
 
 #RUN $apt build-essential acl unzip git
-RUN $apt sudo systemctl nano curl gnupg2 unzip wget
+RUN $apt sudo systemctl nano curl gnupg2 unzip wget less vim
 
 ###
 # INSTALLATION
@@ -68,6 +68,11 @@ RUN $apt redis-server redis-tools
 RUN sed -i "s|daemonize yes|daemonize no|g" /etc/redis/redis.conf
 #RUN sed -i "s|supervised no|supervised systemd|g" /etc/redis/redis.conf
 
+# Expose Redis to be visible outside of the container
+RUN sed -i "s|protected-mode yes|protected-mode no|g" /etc/redis/redis.conf
+RUN sed -i "s|bind 127.0.0.1 ::1|#bind 127.0.0.1 ::1|g" /etc/redis/redis.conf
+
+
 # Copy the Redis systemd file to container
 COPY ./files/redis.service /etc/systemd/system/redis.service
 
@@ -85,6 +90,9 @@ RUN curl -fsSL https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key 
 RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
 RUN apt update
 RUN $apt mongodb-org
+# Expose this instance to the whole world
+# Absolutely NEVER do this in a production environment
+RUN sed -i "s|127.0.0.1|0.0.0.0|g" /etc/mongod.conf
 RUN echo "systemctl start mongod.service" >> ~/.bashrc
 RUN printf "cloud:\n  monitoring:\n    free:\n      state: 'off'" >> /etc/mongod.conf
 
