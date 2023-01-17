@@ -81,6 +81,9 @@ RUN systemctl enable redis
 RUN systemctl start redis
 RUN echo "systemctl start redis" >> ~/.bashrc
 
+# Install iredis
+RUN pip install iredis
+
 #
 # MONGODB
 #
