@@ -25,7 +25,7 @@ ENV apt apt-get --no-install-recommends install -yq
 # Basic software to be installed
 
 #RUN $apt build-essential acl unzip git
-RUN $apt sudo systemctl nano curl gnupg2 unzip wget less vim
+RUN $apt sudo systemctl nano curl gnupg2 unzip wget less vim lsb-release
 
 ###
 # INSTALLATION
@@ -62,7 +62,12 @@ RUN echo "/sbin/service mysql start" >> ~/.bashrc
 #
 
 # Install Redis
-RUN $apt redis-server redis-tools
+RUN curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+RUN echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+RUN apt-get update
+RUN $apt redis
 
 # Configure Redis to run in the background
 RUN sed -i "s|daemonize yes|daemonize no|g" /etc/redis/redis.conf
