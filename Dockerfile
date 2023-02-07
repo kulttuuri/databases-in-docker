@@ -75,7 +75,7 @@ RUN sed -i "s|daemonize yes|daemonize no|g" /etc/redis/redis.conf
 
 # Expose Redis to be visible outside of the container
 RUN sed -i "s|protected-mode yes|protected-mode no|g" /etc/redis/redis.conf
-RUN sed -i "s|bind 127.0.0.1 ::1|#bind 127.0.0.1 ::1|g" /etc/redis/redis.conf
+RUN sed -i "s|bind 127.0.0.1 -::1|#bind 127.0.0.1 -::1|g" /etc/redis/redis.conf
 
 
 # Copy the Redis systemd file to container
