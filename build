@@ -2,17 +2,20 @@
 
 echo ""
 echo "This script will build the Docker container for the database course."
-echo "# Version: 1.0"
+echo "# Version: 1.1"
 echo "# Note that if you already have built the container, then running this again will remove all your old data."
 echo "# If you only wanted to run the container, then run the run script instead."
 echo ""
 read -p "Type Y to build the Docker container: " -n 1 -r
 echo
-if [[ $REPLY =~ ^[YES]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
   docker stop databasecourse
   docker rm databasecourse -f
   docker image rm databasecourse -f
   docker build . -t databasecourse --no-cache --progress=plain
   # docker build . -t databasecourse --no-cache
+else
+  echo "The Docker container build process has been cancelled by the user."
+  echo "If you wish to build the Docker container later, please re-run this script and type 'Y' or 'y' when prompted."
 fi

@@ -102,7 +102,7 @@ RUN $apt mongodb-org
 # Absolutely NEVER do this in a production environment
 RUN sed -i "s|127.0.0.1|0.0.0.0|g" /etc/mongod.conf
 RUN echo "systemctl start mongod.service" >> ~/.bashrc
-RUN printf "cloud:\n  monitoring:\n    free:\n      state: 'off'" >> /etc/mongod.conf
+#RUN printf "cloud:\n  monitoring:\n    free:\n      state: 'off'" >> /etc/mongod.conf
 
 #
 # NEO4J
