@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:20.04
+FROM docker.io/ubuntu:22.04
 LABEL maintainer="aleksi@postari.net"
 ARG TZ=Europe/Helsinki
 
@@ -23,9 +23,7 @@ RUN apt-get update && apt-get upgrade -y
 ENV apt apt-get --no-install-recommends install -yq
 
 # Basic software to be installed
-
-#RUN $apt build-essential acl unzip git
-RUN $apt sudo systemctl nano curl gnupg2 unzip wget less vim lsb-release
+RUN $apt sudo systemctl nano curl gnupg2 acl unzip git unzip wget less vim lsb-release gpg
 
 ###
 # INSTALLATION
@@ -55,7 +53,7 @@ RUN $apt sqlite3
 RUN $apt mariadb-server
 
 # Start the MySQL (mariaDB) service
-RUN echo "/sbin/service mysql start" >> ~/.bashrc
+RUN echo "/sbin/service mariadb start" >> ~/.bashrc
 
 #
 # REDIS
@@ -93,9 +91,11 @@ RUN pip install iredis
 # MONGODB
 #
 
-# Mongodb version 5
-RUN curl -fsSL https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
-RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+# Mongodb version 7
+#RUN curl -fsSL https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+#RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+RUN curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 RUN apt update
 RUN $apt mongodb-org
 # Expose this instance to the whole world
@@ -109,8 +109,13 @@ RUN echo "systemctl start mongod.service" >> ~/.bashrc
 #
 
 RUN curl -fsSL https://debian.neo4j.com/neotechnology.gpg.key |sudo gpg --dearmor -o /usr/share/keyrings/neo4j.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/neo4j.gpg] https://debian.neo4j.com stable 4.4" | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+RUN echo "deb [signed-by=/usr/share/keyrings/neo4j.gpg] https://debian.neo4j.com stable 5" | sudo tee -a /etc/apt/sources.list.d/neo4j.list
 RUN apt update
 RUN $apt neo4j
-RUN sed -i "s|#dbms.default_listen_address=0.0.0.0|dbms.default_listen_address=0.0.0.0|g" /etc/neo4j/neo4j.conf
+RUN sed -i "s|#server.default_listen_address=0.0.0.0|server.default_listen_address=0.0.0.0|g" /etc/neo4j/neo4j.conf
 RUN echo "systemctl start neo4j.service" >> ~/.bashrc
+
+# Create a directory for systemd to use
+RUN mkdir -p /run/systemd && echo 'docker' > /run/systemd/container
+# Set the entrypoint to systemd
+CMD ["/sbin/init"]
