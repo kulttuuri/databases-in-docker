@@ -20,7 +20,7 @@ RUN ln -snf /usr/share/zoneinfo/"$TZ" /etc/localtime && echo "$TZ" > /etc/timezo
 RUN apt-get update && apt-get upgrade -y
 
 # Variables
-ENV apt apt-get --no-install-recommends install -yq
+ENV apt="apt-get --no-install-recommends install -yq"
 
 # Basic software to be installed
 RUN $apt sudo systemctl nano curl gnupg2 acl unzip git unzip wget less vim lsb-release gpg
