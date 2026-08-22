@@ -23,7 +23,7 @@ The pre-installed DBMS systems are listed below:
 
 ## Compatibility (Requirements)
 
-These scripts should work with any Unix system. The scripts have been tested to work at least with with Windows 10 (WSL) running Ubuntu 20.04 and MacOS (Arm).
+These scripts should work with any Unix system. The scripts have been tested to work at least with with Windows 11 (WSL 2) running Ubuntu 24.04 / Ubuntu 26.04 and MacOS (Arm).
 
 ## Getting Started
 
